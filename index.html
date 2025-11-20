@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Бесплатный VPN сервис для безопасного интернета. Скачайте и используйте без ограничений.">
+    <title>Бесплатный VPN | SecureVPN</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Голубо-серая цветовая палитра */
+            --primary-blue: #4A90E2;
+            --primary-blue-dark: #357ABD;
+            --primary-blue-light: #6BA3E8;
+            --secondary-gray: #6C7A89;
+            --light-gray: #E8ECEF;
+            --dark-gray: #2C3E50;
+            --bg-gray: #F5F7FA;
+            --white: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-light: #6C7A89;
+            --accent-blue: #5BA3F5;
+            --shadow: rgba(74, 144, 226, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-gray) 0%, var(--light-gray) 100%);
+            padding: 5rem 0;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-device {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-device:hover {
+            background: var(--primary-blue-dark);
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .check-icon {
+            background: var(--primary-blue);
+            color: var(--white);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .map-illustration {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue-light) 0%, var(--primary-blue) 100%);
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .vpn-logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3em;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .logo-secure {
+            font-size: 4.5rem;
+            color: #FFFFFF;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: capitalize;
+        }
+
+        .logo-vpn {
+            font-size: 4rem;
+            color: #FFFFFF;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .logo-secure {
+                font-size: 3rem;
+            }
+
+            .logo-vpn {
+                font-size: 2.5rem;
+            }
+
+            .map-illustration {
+                height: 300px;
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: var(--primary-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .feature-icon svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--bg-gray) 0%, var(--light-gray) 100%);
+        }
+
+        .download-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .devices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .device-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .device-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+            border-color: var(--primary-blue);
+        }
+
+        .device-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .device-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .download-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .download-info p {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .about-content h3 {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .benefits-list {
+            margin: 3rem 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--bg-gray);
+            border-radius: 12px;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item h4 {
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--bg-gray);
+            border-radius: 12px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-blue-light);
+        }
+
+        .footer-section p {
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+            color: var(--light-gray);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .nav {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .devices-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Download Animation */
+        @keyframes downloadPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .downloading {
+            animation: downloadPulse 1s infinite;
+            pointer-events: none;
+        }
+
+        /* Notification Styles */
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>SecureVPN</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#features" class="nav-link">Возможности</a>
+                    <a href="#download" class="nav-link">Скачать</a>
+                    <a href="#about" class="nav-link">О нас</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">Приватность в интернете,<br>просто и удобно с VPN</h2>
+                    <p class="hero-subtitle">Наслаждайтесь просмотром стриминговых площадок, виртуально путешествуйте по миру, создайте свою свободу в интернете с SecureVPN.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" id="downloadBtn">Скачать бесплатно</button>
+                        <button class="btn btn-secondary" id="learnMoreBtn">Узнать больше</button>
+                    </div>
+                    <div class="hero-features">
+                        <div class="feature-badge">
+                            <span class="check-icon">✓</span>
+                            <span>Полностью бесплатно</span>
+                        </div>
+                        <div class="feature-badge">
+                            <span class="check-icon">✓</span>
+                            <span>Без регистрации</span>
+                        </div>
+                        <div class="feature-badge">
+                            <span class="check-icon">✓</span>
+                            <span>Работает в России</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="map-illustration">
+                        <div class="vpn-logo-text">
+                            <div class="logo-secure">Secure</div>
+                            <div class="logo-vpn">VPN</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Подключитесь к нашей сети VPN и наслаждайтесь цифровой свободой</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Высокая скорость</h3>
+                    <p>Все наши серверы обеспечивают скорость соединения от 100 Мбит/с до 1 Гбит/с, чтобы вы могли наслаждаться стабильной работой.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Полностью бесплатно</h3>
+                    <p>Мы ценим каждого пользователя и предлагаем услуги абсолютно бесплатно, потому что безопасность должна быть доступна всем.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>Конфиденциальность</h3>
+                    <p>Мы гарантируем, что ваши данные никогда не будут переданы третьим лицам, независимо от ситуации.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Мы всегда на связи</h3>
+                    <p>Наша команда готова ответить на ваши вопросы и помочь в любое время дня и ночи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2 class="section-title">Доступно для всех ваших устройств</h2>
+                <p class="download-subtitle">Одна подписка на всех устройствах. После скачивания, вы сможете подключить VPN на любом вашем устройстве.</p>
+                
+                <div class="devices-grid">
+                    <div class="device-card" data-device="windows">
+                        <div class="device-icon">🪟</div>
+                        <h3>Windows</h3>
+                        <button class="btn btn-device" data-file="SecureVPN.apk">Скачать</button>
+                    </div>
+                    <div class="device-card" data-device="macos">
+                        <div class="device-icon">🍎</div>
+                        <h3>macOS</h3>
+                        <button class="btn btn-device" data-file="SecureVPN.apk">Скачать</button>
+                    </div>
+                    <div class="device-card" data-device="linux">
+                        <div class="device-icon">🐧</div>
+                        <h3>Linux</h3>
+                        <button class="btn btn-device" data-file="SecureVPN.apk">Скачать</button>
+                    </div>
+                    <div class="device-card" data-device="ios">
+                        <div class="device-icon">📱</div>
+                        <h3>iOS</h3>
+                        <button class="btn btn-device" data-file="SecureVPN.apk">Скачать</button>
+                    </div>
+                    <div class="device-card" data-device="android">
+                        <div class="device-icon">🤖</div>
+                        <h3>Android</h3>
+                        <button class="btn btn-device" data-file="SecureVPN.apk">Скачать</button>
+                    </div>
+                    <div class="device-card" data-device="android-tv">
+                        <div class="device-icon">📺</div>
+                        <h3>Android TV</h3>
+                        <button class="btn btn-device" data-file="SecureVPN.apk">Скачать</button>
+                    </div>
+                </div>
+
+                <div class="download-info">
+                    <p>Свобода в твоих руках, выбор за тобой!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">SecureVPN: Надежный ВПН Сервис для Всех Ваших Потребностей</h2>
+            <div class="about-content">
+                <p>Работа онлайн для многих стала актуальной. Это удобно, быстро и комфортно. То же касается и видеоигр, различных комьюнити по интересам и хобби. Найти важную информацию не составляет труда, а искать можно что угодно, начиная с рецептов проверенной кухни и заканчивая поиском одноклассников, которые разъехались по всему свету.</p>
+                
+                <p>Но чем больше мы пользуемся Сетью для своих потребностей, тем уязвимее становимся к хакерским атакам, мошенническим действиям и блокировкам аккаунтов. Всему виной неосторожность пользователя и доступность контактной информации.</p>
+
+                <h3>Как безопасно работать, серфить, играть в Интернете?</h3>
+                <p>Если скачать ВПН сервис и установить его на ПК, ноутбук или смартфон, ваш цифровой след при переходах на разные страницы сайтов будет стираться мгновенно. Кроме того, ваш реальный адрес и данные всегда будут засекречены, и о них не узнают третьи лица.</p>
+
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🔒</span>
+                        <div>
+                            <h4>Защита IP-адреса</h4>
+                            <p>Защитный шлюз позволяет скрыть ваш реальный IP-адрес, делая ваше интернет-соединение анонимным и защищая действия от провайдера или сторонних наблюдателей.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🌍</span>
+                        <div>
+                            <h4>Обход ограничений</h4>
+                            <p>С помощью переадресации маршрутизатора обходятся географические ограничения, предоставляется доступ к недоступным в вашем регионе стриминговым сервисам, сайтам или онлайн-играм.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💾</span>
+                        <div>
+                            <h4>Защита данных</h4>
+                            <p>VPN защищает личные данные, предотвращает отслеживание истории просмотров. В онлайн-играх VPN может улучшить соединение, снижая пинг или обходя региональные ограничения.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">80+</div>
+                        <div class="stat-label">Серверов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">29</div>
+                        <div class="stat-label">Стран</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1 Гбит/с</div>
+                        <div class="stat-label">Скорость</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Поддержка</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SecureVPN</h4>
+                    <p>Бесплатный VPN сервис для безопасного и анонимного интернета.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Платформы</h4>
+                    <ul>
+                        <li>Windows</li>
+                        <li>macOS</li>
+                        <li>Linux</li>
+                        <li>iOS</li>
+                        <li>Android</li>
+                        <li>Android TV</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Поддержка</h4>
+                    <ul>
+                        <li>FAQ</li>
+                        <li>Контакты</li>
+                        <li>Политика конфиденциальности</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SecureVPN. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Функция для скачивания файла
+        function downloadFile(filename) {
+            // Путь к файлу в папке downloads
+            // ВАЖНО: Файлы должны быть размещены в папке 'downloads' в корне проекта
+            const filePath = `downloads/${filename}`;
+            
+            // Создаем временную ссылку для скачивания
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = filename;
+            link.style.display = 'none';
+            
+            // Добавляем ссылку в DOM, кликаем и удаляем
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Показываем уведомление о начале загрузки
+            showDownloadNotification(filename);
+        }
+
+        // Функция для показа уведомления о скачивании
+        function showDownloadNotification(filename) {
+            // Создаем элемент уведомления
+            const notification = document.createElement('div');
+            notification.className = 'download-notification';
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-icon">⬇️</span>
+                    <span class="notification-text">Началась загрузка: ${filename}</span>
+                </div>
+            `;
+            
+            // Добавляем стили для уведомления
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #4A90E2;
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            // Добавляем стили для контента уведомления
+            const style = document.createElement('style');
+            style.textContent = `
+                .notification-content {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+                .notification-icon {
+                    font-size: 1.2rem;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Удаляем уведомление через 3 секунды
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Обработчик для главной кнопки "Скачать бесплатно"
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Определяем операционную систему пользователя
+            const userOS = detectOS();
+            const filename = getFilenameForOS(userOS);
+            
+            // Прокручиваем к секции скачивания
+            document.getElementById('download').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Небольшая задержка перед началом скачивания (опционально)
+            setTimeout(() => {
+                downloadFile(filename);
+            }, 500);
+        });
+
+        // Обработчик для кнопки "Узнать больше"
+        document.getElementById('learnMoreBtn').addEventListener('click', function() {
+            document.getElementById('features').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+        // Обработчики для кнопок скачивания на устройствах
+        document.querySelectorAll('.btn-device').forEach(button => {
+            button.addEventListener('click', function() {
+                const filename = this.getAttribute('data-file');
+                const buttonText = this.textContent;
+                
+                // Добавляем класс для анимации
+                this.classList.add('downloading');
+                this.textContent = 'Загрузка...';
+                
+                // Запускаем скачивание
+                downloadFile(filename);
+                
+                // Возвращаем исходный текст через 2 секунды
+                setTimeout(() => {
+                    this.classList.remove('downloading');
+                    this.textContent = buttonText;
+                }, 2000);
+            });
+        });
+
+        // Функция определения операционной системы
+        function detectOS() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/android/i.test(userAgent)) {
+                return 'android';
+            }
+            
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return 'ios';
+            }
+            
+            if (/Win/.test(navigator.platform)) {
+                return 'windows';
+            }
+            
+            if (/Mac/.test(navigator.platform)) {
+                return 'macos';
+            }
+            
+            if (/Linux/.test(navigator.platform)) {
+                return 'linux';
+            }
+            
+            return 'windows'; // По умолчанию
+        }
+
+        // Функция получения имени файла для ОС
+        function getFilenameForOS(os) {
+            const fileMap = {
+                'windows': 'SecureVPN.apk',
+                'macos': 'SecureVPN.apk',
+                'linux': 'SecureVPN.apk',
+                'ios': 'SecureVPN.apk',
+                'android': 'SecureVPN.apk'
+            };
+            
+            return fileMap[os] || 'SecureVPN-Windows.exe';
+        }
+
+        // Добавляем эффект при наведении на карточки устройств
+        document.querySelectorAll('.device-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Плавное появление элементов при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Применяем анимацию к карточкам
+        document.querySelectorAll('.feature-card, .device-card, .benefit-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
